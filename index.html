@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>To-Do List</title>
+	<script defer src="main.js"></script></head>
+	<body>
+		<aside>
+			<h2>To Do App</h2>
+			<section>
+				<button class="icon-container add-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+					</svg>
+					<span>Add Task</span>
+				</button>
+				<button class="icon-container" id="general">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path
+							d="M7,5H21V7H7V5M7,13V11H21V13H7M4,4.5A1.5,1.5 0 0,1 5.5,6A1.5,1.5 0 0,1 4,7.5A1.5,1.5 0 0,1 2.5,6A1.5,1.5 0 0,1 4,4.5M4,10.5A1.5,1.5 0 0,1 5.5,12A1.5,1.5 0 0,1 4,13.5A1.5,1.5 0 0,1 2.5,12A1.5,1.5 0 0,1 4,10.5M7,19V17H21V19H7M4,16.5A1.5,1.5 0 0,1 5.5,18A1.5,1.5 0 0,1 4,19.5A1.5,1.5 0 0,1 2.5,18A1.5,1.5 0 0,1 4,16.5Z"
+						/>
+					</svg>
+					<span>General</span>
+				</button>
+				<button class="icon-container" id="today">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path
+							d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1"
+						/>
+					</svg>
+					<span>Today</span>
+				</button>
+				<button class="icon-container" id="upcoming">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path
+							d="M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3 3.89 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.89 20.1 3 19 3M19 19H5V8H19V19M12 17V15H8V12H12V10L16 13.5L12 17Z"
+						/>
+					</svg>
+					<span>Up Coming</span>
+				</button>
+				<button class="icon-container" id="completed">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path
+							d="M5 19V5H12V12H19V13C19.7 13 20.37 13.13 21 13.35V9L15 3H5C3.89 3 3 3.89 3 5V19C3 20.1 3.89 21 5 21H13.35C13.13 20.37 13 19.7 13 19H5M14 4.5L19.5 10H14V4.5M22.5 17.25L17.75 22L15 19L16.16 17.84L17.75 19.43L21.34 15.84L22.5 17.25Z"
+						/>
+					</svg>
+					<span>Completed</span>
+				</button>
+				<button class="icon-container" id="deleted">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path
+							d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z"
+						/>
+					</svg>
+					<span>Trash</span>
+				</button>
+				<h3>My Projects</h3>
+				<button class="icon-container add-project">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+					</svg>
+					<span>Add Project</span>
+				</button>
+				<div class="category-container"></div>
+			</section>
+		</aside>
+		<main id="main">
+			<h2 class="heading" id="today">Today Tasks</h2>
+		</main>
+		<dialog id="entry-dialog">
+			<form action="#" method="post">
+				<input
+					type="text"
+					name="title"
+					id="title"
+					placeholder="Title"
+					required
+				/>
+				<textarea
+					name="description"
+					id="description"
+					placeholder="Description..."
+					rows="10"
+					cols="40"
+					required
+				></textarea>
+				<div>
+					<label for="due-date">Due Date: </label>
+					<input type="date" name="dueDate" id="due-date" required />
+				</div>
+				<div>
+					<label for="category">Assign To: </label>
+					<select name="category" id="category" class="select">
+						<option value="general" selected>General</option>
+					</select>
+				</div>
+				<div>
+					<label for="priority">Make it a Priority: </label>
+					<input type="checkbox" name="priority" id="priority" />
+				</div>
+				<div class="btns">
+					<button type="reset" id="reset">Cancel</button>
+					<button type="submit" id="submit">Add Task</button>
+				</div>
+			</form>
+		</dialog>
+
+		<dialog id="project-dialog">
+			<div>
+				<label for="project">Project Name: </label>
+				<input type="text" name="Project" id="project" />
+			</div>
+			<div class="btns">
+				<button type="reset" id="reset" class="reset">Cancel</button>
+				<button class="submit" id="submit">Add Project</button>
+			</div>
+		</dialog>
+	</body>
+</html>
